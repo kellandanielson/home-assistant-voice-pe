@@ -1,0 +1,8 @@
+# Local build wrapper: stock config + WiFi credentials for OTA builds.
+# Build: esphome compile kellan-voice.yaml ; Flash: esphome upload kellan-voice.yaml --device 10.0.0.41
+packages:
+  voice: !include home-assistant-voice.yaml
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password

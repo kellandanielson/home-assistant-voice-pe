@@ -1795,15 +1795,15 @@ select:
         // hey_pickle is a fresh custom microWakeWord model (kellan fork); cutoffs are
         // untested estimates, not DipCo-derived - tune after real-world use.
         if (x == "Slightly sensitive") {
-          id(hey_pickle).set_probability_cutoff(217);   // 0.85 - TV-guard tier, auto-selected while soundbar plays TV audio
+          id(hey_pickle).set_probability_cutoff(242);   // 0.95 - v9 ladder rev2 (9/20): strict end
           id(hey_jarvis).set_probability_cutoff(247);   // 0.97 -> 0.563 FAPH on DipCo (Manifest's default)
           id(hey_mycroft).set_probability_cutoff(253);  // 0.99 -> 0.567 FAPH on DipCo
         } else if (x == "Moderately sensitive") {
-          id(hey_pickle).set_probability_cutoff(143);   // 0.56
+          id(hey_pickle).set_probability_cutoff(235);   // 0.92 - v9 ladder rev2 (9/20): DEFAULT, small step past 0.95
           id(hey_jarvis).set_probability_cutoff(235);   // 0.92 -> 0.939 FAPH on DipCo
           id(hey_mycroft).set_probability_cutoff(242);  // 0.95 -> 1.502 FAPH on DipCo (Manifest's default)
         } else if (x == "Very sensitive") {
-          id(hey_pickle).set_probability_cutoff(115);   // 0.45
+          id(hey_pickle).set_probability_cutoff(217);   // 0.85 - v9: loudest end; lab FA music 6.8 / TV 10.7 / female 23%
           id(hey_jarvis).set_probability_cutoff(212);   // 0.83 -> 1.502 FAPH on DipCo
           id(hey_mycroft).set_probability_cutoff(237);  // 0.93 -> 1.878 FAPH on DipCo
         }

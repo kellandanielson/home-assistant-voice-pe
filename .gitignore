@@ -139,3 +139,11 @@ sdkconfig.*
 
 /components
 secrets.yaml
+
+# family voice recordings - never commit (private)
+training/real_clips_*/
+
+# local build/flash logs (device IPs, paths) - never publish
+*.log
+build_log.txt
+pickle-logs.txt

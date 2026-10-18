@@ -1725,8 +1725,8 @@ micro_wake_word:
       id: hey_pickle
     - model: hey_jarvis
       id: hey_jarvis
-    - model: hey_mycroft
-      id: hey_mycroft
+    - model: wakewords/hey_donut.json   # community test model (nyc-esq/hey-donut v2) in Hey Mycroft's old slot, 2026-10-17
+      id: hey_donut
     - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
       id: stop
       internal: true
@@ -1797,15 +1797,15 @@ select:
         if (x == "Slightly sensitive") {
           id(hey_pickle).set_probability_cutoff(242);   // 0.95 - v9 ladder rev2 (9/20): strict end
           id(hey_jarvis).set_probability_cutoff(247);   // 0.97 -> 0.563 FAPH on DipCo (Manifest's default)
-          id(hey_mycroft).set_probability_cutoff(253);  // 0.99 -> 0.567 FAPH on DipCo
+          id(hey_donut).set_probability_cutoff(242);    // 0.95 - author's shipped cutoff (9% missed / 0 FA/h on its test set)
         } else if (x == "Moderately sensitive") {
           id(hey_pickle).set_probability_cutoff(235);   // 0.92 - v9 ladder rev2 (9/20): DEFAULT, small step past 0.95
           id(hey_jarvis).set_probability_cutoff(235);   // 0.92 -> 0.939 FAPH on DipCo
-          id(hey_mycroft).set_probability_cutoff(242);  // 0.95 -> 1.502 FAPH on DipCo (Manifest's default)
+          id(hey_donut).set_probability_cutoff(217);    // 0.85 - author's 'fair working point'
         } else if (x == "Very sensitive") {
           id(hey_pickle).set_probability_cutoff(217);   // 0.85 - v9: loudest end; lab FA music 6.8 / TV 10.7 / female 23%
           id(hey_jarvis).set_probability_cutoff(212);   // 0.83 -> 1.502 FAPH on DipCo
-          id(hey_mycroft).set_probability_cutoff(237);  // 0.93 -> 1.878 FAPH on DipCo
+          id(hey_donut).set_probability_cutoff(196);    // 0.77 - author: 4.9% missed / 0.19 FA/h
         }
 
 voice_assistant:
